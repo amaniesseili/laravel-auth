@@ -96,7 +96,7 @@
             @yield('content')
         </main>
 
-        <footer class="mt-3" >
+        <footer class="footer mt-3" >
             <div class="bg-dark" style="height: 100px">
                 <h5 class="text-center text-white pt-5 ">Dall'Arte degli Interni all'Universo del Codice: L'Arte della Creatività e la Magia della Tecnologia</h5>
             </div>
