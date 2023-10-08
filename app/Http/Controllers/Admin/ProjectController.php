@@ -45,7 +45,7 @@ class ProjectController extends Controller
         $project = Project::create($data);
 
         //reindirizzo alla pagina dello show
-        return redirect()->route('admin.projects.show');
+        return redirect()->route('admin.projects.show', $project->id);
 
         
 
