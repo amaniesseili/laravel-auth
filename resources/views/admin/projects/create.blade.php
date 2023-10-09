@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Crea un Nuovo Progetto</h1>
 
-        <form action="{{ 'admin.projects.store' }}" method="POST">
+        <form action="{{route('admin.projects.store') }}" method="POST">
             @csrf()
 
             <div class="mb-3">
@@ -23,10 +23,11 @@
 
         </form>
 
-        <button class="btn btn-primary">Crea</button>
+        <button class="btn btn-primary">Crea Progetto</button>
 
         {{-- link per tornare all'elenco dei progetti --}}
         <a href="{{ route('admin.projects.index') }}">Torna all'elenco dei Progetti</a>
 
     </div>
 @endsection
+

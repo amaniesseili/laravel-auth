@@ -47,9 +47,9 @@
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
 
-                        {{-- add btn post --}}
+                        {{-- add btn project --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.projects.index') }}">Post</a>
+                            <a class="nav-link" href="{{ route('admin.projects.index') }}">Projects</a>
                         </li>
                     </ul>
 
@@ -73,8 +73,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
-                                    <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
+                                    <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

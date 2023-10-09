@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\Project; //importo il Model del progetto 
+
+use App\Models\Project; //importo il Model del progetto 
 
 class ProjectController extends Controller
 {
@@ -12,14 +13,14 @@ class ProjectController extends Controller
     public function index(){
 
         $projects = Project::all();
-        return view('admin.projects.index', compact('project'));
+        return view('admin.projects.index', compact('projects'));
 
     }
     
     //Funzione per visualizzare i dettagli di un singolo progettpo
     public function show($id){
 
-        $projects = Project::findOrFail($id);
+        $project = Project::findOrFail($id);
         return view('admin.projects.show', compact('project'));
         
     }
