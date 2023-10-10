@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectStoreRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Project; //importo il Model del progetto 
@@ -28,19 +29,15 @@ class ProjectController extends Controller
 
     //Funzione per visualizzare il modulo di creazione du un nuovo progetto
     public function create(){
-        return view('admin.project.create');
+        return view('admin.projects.create');
         
     }
     
 
     //Funzione per recuperare e salvare un nuovo progetto nel database
-    public function store(Request $request){
+    public function store( ProjectStoreRequest $request){
         //valida i dati del modulo 
-        $data = $request->validate([
-            'image'=>"required|max:255",
-            'title'=>"required|max:255",
-            'description'=>"required",
-        ]);
+        $data = $request->validated();//validated ritorna i dati gia validati di laravel
 
         //crea e salva il progetto 
         $project = Project::create($data);

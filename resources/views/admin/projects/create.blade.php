@@ -4,7 +4,17 @@
     <div class="container">
         <h1>Crea un Nuovo Progetto</h1>
 
-        <form action="{{route('admin.projects.store') }}" method="POST">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf()
 
             <div class="mb-3">
@@ -30,4 +40,3 @@
 
     </div>
 @endsection
-
