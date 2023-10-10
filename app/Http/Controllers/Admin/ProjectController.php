@@ -76,5 +76,13 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.show');
     }
 
+    public function destroy($id)
+    {
+        $project = Project::findOrFail($id); //trova il progetto
+        $project->delete(); // cancella il progetto trovato 
+
+        return redirect()->route('admin.projects.index'); //rimanda l'utente all'index 
+    }
+
 
 }
