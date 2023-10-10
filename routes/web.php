@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\ProjectController as GuestProjectController;// lo importo aggiungendo as .. per nn avere problemi dello stesso nome con admin 
+use App\Http\Controllers\ProjectController as GuestProjectController; // lo importo aggiungendo as .. per nn avere problemi dello stesso nome con admin 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,37 +28,41 @@ Route::get('/admin', function () {
 
 //Ragruppo le rotte aggiungendo il middleware per assicurare che queste rotte admin siano accessibili solo agli utenti loggati
 
-Route::middleware(['auth','verified'])
+Route::middleware(['auth', 'verified'])
     ->prefix('admin')  // per non inserire /admin in ogni rotta
     ->name('admin.')   //per nn inserire admin.(...admin.projects.index)
-    ->group(function(){
+    ->group(function () {
 
 
 
 
-    //CREATE
-    //per il modulo di creazione di un nuovo progetto
-    Route::get("/projects/create", [ProjectController::class,"create"])->name("projects.create");
+        //CREATE
+        //per il modulo di creazione di un nuovo progetto
+        Route::get("/projects/create", [ProjectController::class, "create"])->name("projects.create");
 
-    //per salvare un nuovo progetto nel data base
-    Route::post("/projects", [ProjectController::class,"store"])->name("projects.store");
+        //per salvare un nuovo progetto nel data base
+        Route::post("/projects", [ProjectController::class, "store"])->name("projects.store");
 
         //READ
-    //per l'elenco dei progetti
-    Route::get("/projects", [ProjectController::class,"index"])->name("projects.index");
+        //per l'elenco dei progetti
+        Route::get("/projects", [ProjectController::class, "index"])->name("projects.index");
 
-    //per la visualizzazione dei dettagli di un progetto
-    Route::get("/projects/{project}", [ProjectController::class,"show"])->name("projects.show");
+        //per la visualizzazione dei dettagli di un progetto
+        Route::get("/projects/{project}", [ProjectController::class, "show"])->name("projects.show");
+
+        // UPDATE
+        Route::get("/projects/{project}/edit", [projectController::class, "edit"])->name("projects.edit"); //mostra il form dove possiamo modificare il nostro contenuto
+        Route::patch("/projects/{project}", [projectController::class, "update"])->name("projects.update"); // riceve i dati del form edit e li salva 
 
 
-});
+    });
 
 // Route::get("admin/projects/create", function(){
 //     return "ciao";
 // });
 //------------------------------------------------------
 //rotta per il guest controller-----------------------
-Route::get("/projects",[GuestProjectController::class,"index"])->name("projects.index");
+Route::get("/projects", [GuestProjectController::class, "index"])->name("projects.index");
 //----------------------------------------------------
 
 Route::middleware('auth')->group(function () {
@@ -67,4 +71,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('admin.profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

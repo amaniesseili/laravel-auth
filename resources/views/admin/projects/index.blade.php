@@ -15,6 +15,10 @@
                         </div>
                     </div>
                 </div>
+
+                <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-info">dettagli</i></a>
+                <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning">modifica</a>
+      
                 @endforeach 
 
                 <a href="{{ route('admin.projects.create') }}">Aggiungi un Nuovo Progetto</a>

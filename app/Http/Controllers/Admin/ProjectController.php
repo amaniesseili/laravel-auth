@@ -44,10 +44,37 @@ class ProjectController extends Controller
 
         //reindirizzo alla pagina dello show
         return redirect()->route('admin.projects.show', $project->id);
-
-        
-
-
         
     }
+
+    public function edit($id) {
+        $project = project::findOrFail($id);
+
+        return view("admin.projects.edit", compact("project"));
+    }
+
+
+    //recuperare i dati 
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'image'=> 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            
+        ]);
+
+        $project = Project::findOrFail($id);
+        $project->image = $validatedData['image'];
+        $project->title = $validatedData['title'];
+        $project->description = $validatedData['description'];
+
+        
+
+        $project->update($validatedData);
+
+        return redirect()->route('admin.projects.show');
+    }
+
+
 }
