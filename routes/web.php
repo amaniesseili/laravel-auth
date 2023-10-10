@@ -34,12 +34,7 @@ Route::middleware(['auth','verified'])
     ->group(function(){
 
 
-    //READ
-    //per l'elenco dei progetti
-    Route::get("/projects", [ProjectController::class,"index"])->name("projects.index");
 
-    //per la visualizzazione dei dettagli di un progetto
-    Route::get("/projects/{project}", [ProjectController::class,"show"])->name("projects.show");
 
     //CREATE
     //per il modulo di creazione di un nuovo progetto
@@ -48,9 +43,19 @@ Route::middleware(['auth','verified'])
     //per salvare un nuovo progetto nel data base
     Route::post("/projects", [ProjectController::class,"store"])->name("projects.store");
 
+        //READ
+    //per l'elenco dei progetti
+    Route::get("/projects", [ProjectController::class,"index"])->name("projects.index");
+
+    //per la visualizzazione dei dettagli di un progetto
+    Route::get("/projects/{project}", [ProjectController::class,"show"])->name("projects.show");
+
 
 });
 
+// Route::get("admin/projects/create", function(){
+//     return "ciao";
+// });
 //------------------------------------------------------
 //rotta per il guest controller-----------------------
 Route::get("/projects",[GuestProjectController::class,"index"])->name("projects.index");
