@@ -14,15 +14,21 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf()
             @method('PATCH')
 
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine del Progetto</label>
-                <input type="text" class="form-control" name="image" value="{{$project->image}}"id="exampleFormControlInput1"
+                <input type="file" class="form-control" name="image"
                     placeholder="inserici il link dell'immagine">
             </div>
+
+            {{-- <div class="mb-3">
+                <label for="image" class="form-label">Immagine del Progetto</label>
+                <input class="form-control" type="file" id="formFile">
+            </div> --}}
+
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo Del Progetto</label>
                 <input type="text" class="form-control" name="title" value="{{$project->title}}" placeholder="inserici il titolo del progetto">
@@ -32,9 +38,11 @@
                 <textarea class="form-control" name="description" value="{{$project->description}}"id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
+            <button type="submit" class="btn btn-primary">aggiorna </button>
+
         </form>
 
-        <button class="btn btn-primary">aggiorna </button>
+        
 
         {{-- link per tornare all'elenco dei progetti --}}
         <a href="{{ route('admin.projects.index') }}">Torna all'elenco dei Progetti</a>

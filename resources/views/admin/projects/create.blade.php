@@ -31,9 +31,11 @@
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
+            <button type="submit" class="btn btn-primary">Crea Progetto</button>
+
         </form>
 
-        <button class="btn btn-primary">Crea Progetto</button>
+        
 
         {{-- link per tornare all'elenco dei progetti --}}
         <a href="{{ route('admin.projects.index') }}">Torna all'elenco dei Progetti</a>

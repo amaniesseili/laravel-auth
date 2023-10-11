@@ -54,7 +54,8 @@ Route::middleware(['auth', 'verified'])
         Route::get("/projects/{project}/edit", [projectController::class, "edit"])->name("projects.edit"); //mostra il form dove possiamo modificare il nostro contenuto
         Route::patch("/projects/{project}", [projectController::class, "update"])->name("projects.update"); // riceve i dati del form edit e li salva 
 
-
+        // DELETE
+        Route::delete("/projects/{project}", [projectController::class, "destroy"])->name("projects.destroy");
     });
 
 // Route::get("admin/projects/create", function(){
@@ -67,8 +68,10 @@ Route::get("/projects", [GuestProjectController::class, "index"])->name("project
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    
     Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
-    Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('admin.profile.destroy');
+
+    Route::delete('/admin/profile', [ProjectsController::class, 'destroy'])->name('admin.profile.destroy');
 });
 
 require __DIR__ . '/auth.php';

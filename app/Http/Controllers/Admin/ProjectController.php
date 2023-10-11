@@ -7,6 +7,7 @@ use App\Http\Requests\ProjectStoreRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Project; //importo il Model del progetto 
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -70,6 +71,10 @@ class ProjectController extends Controller
         $project->description = $validatedData['description'];
 
         
+                //salvo il file dell'immagine nel fileSystem
+                $image_path = Storage::put("projects", $validatedData["image"]);//projects è la cartella dove si salava l'img $vali... è dove si trova il file 
+
+                $validatedData["image"] = $image_path;
 
         $project->update($validatedData);
 
