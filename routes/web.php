@@ -67,9 +67,9 @@ Route::get("/projects", [GuestProjectController::class, "index"])->name("project
 //----------------------------------------------------
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::get('/admin/profile', [ProjectsController::class, 'edit'])->name('admin.profile.edit');
     
-    Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
+    Route::patch('/admin/profile', [ProjectsController::class, 'update'])->name('admin.profile.update');
 
     Route::delete('/admin/profile', [ProjectsController::class, 'destroy'])->name('admin.profile.destroy');
 });

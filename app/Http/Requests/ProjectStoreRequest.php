@@ -27,7 +27,7 @@ class ProjectStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image'=>"required|max:255",
+            'image'=>"required|image|max:5000",
             'title'=>"required|max:255",
             'description'=>"required",
         ];

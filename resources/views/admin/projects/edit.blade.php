@@ -24,11 +24,6 @@
                     placeholder="inserici il link dell'immagine">
             </div>
 
-            {{-- <div class="mb-3">
-                <label for="image" class="form-label">Immagine del Progetto</label>
-                <input class="form-control" type="file" id="formFile">
-            </div> --}}
-
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo Del Progetto</label>
                 <input type="text" class="form-control" name="title" value="{{$project->title}}" placeholder="inserici il titolo del progetto">

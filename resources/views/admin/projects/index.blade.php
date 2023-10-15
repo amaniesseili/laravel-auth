@@ -5,6 +5,7 @@
 
         <h1 class="mt-2">Elenco dei Progetti</h1>
         <a href="{{ route('admin.projects.create') }}">Aggiungi un Nuovo Progetto</a>
+        {{-- <a href="{{ asset('/storage/' . $project->image)  }}">Aggiungi un Nuovo Progetto</a> --}}
         <div class="row">
             @foreach ($projects as $project)
                 <div class="col-2 me-5">

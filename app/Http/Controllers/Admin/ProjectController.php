@@ -59,7 +59,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'image'=> 'required|string|max:255',
+            'image'=> 'required|image|max:5000',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             
@@ -72,13 +72,13 @@ class ProjectController extends Controller
 
         
                 //salvo il file dell'immagine nel fileSystem
-                $image_path = Storage::put("projects", $validatedData["image"]);//projects è la cartella dove si salava l'img $vali... è dove si trova il file 
+                $image_path = Storage::put("projects", $validatedData["image"]);//projects è la cartella dove si salva l'img $vali... è dove si trova il file 
 
                 $validatedData["image"] = $image_path;
 
         $project->update($validatedData);
 
-        return redirect()->route('admin.projects.show');
+        return redirect()->route('admin.projects.show',$project->id);
     }
 
     public function destroy($id)
