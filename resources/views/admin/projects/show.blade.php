@@ -5,9 +5,11 @@
     <div class="container">
 
         <h1>Dettagli Progetto: {{ $project->title }}</h1>
-        {{-- <img src="{{ $project->image }}" alt="" class="img-fluid"> --}}
+        <img src="{{ $project->image }}" alt="" class="img-fluid">
 
-        <img src="{{ asset('/storage/' . $project->image )}}" alt="" class="img-fluid">
+        {{-- <img src="{{ asset('/storage/' . $project->image )}}" alt="" class="img-fluid"> --}}
+
+        <p>{{$project->type->name}}</p>
 
         <p>{{ $project->description }}</p>
 
