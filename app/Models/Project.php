@@ -13,6 +13,7 @@ class Project extends Model
         'image',
         'title',
         'description',
+        'type_id',
     ];
     
     //project belongs to type

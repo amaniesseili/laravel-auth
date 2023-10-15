@@ -14,6 +14,7 @@
                             <img src="{{ asset('img/section2-col-3-img6.jpg') }}" style="width: 400px" alt="">
                         </div>
                         <h3 class="mt-3 text-center">{{ $project->title }}</h3>
+                        <p>{{$project->type->name}}</p>
                         <div class="description-box mt-3">
                             <p class="p-3">{{ $project->description }}</p>
                             <div class="p-2">

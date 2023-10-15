@@ -23,6 +23,14 @@
                 <input type="file" class="form-control" name="image"
                     placeholder="inserici il link dell'immagine">
             </div>
+                        {{-- select per la type --}}
+                        <select class="form-select" name="type_id">
+                            @foreach ($types as $type)
+                            
+                            <option value="{{$type->id}}"{{$project->type_id === $type->id ? 'selected': ''}}>{{$type->name}}</option>
+                            @endforeach
+            
+                        </select>
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo Del Progetto</label>

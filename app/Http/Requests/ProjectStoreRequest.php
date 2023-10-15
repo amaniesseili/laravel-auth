@@ -30,6 +30,8 @@ class ProjectStoreRequest extends FormRequest
             'image'=>"required|image|max:5000",
             'title'=>"required|max:255",
             'description'=>"required",
+            'type_id'=> "nullable|exists:types,id",
+
         ];
     }
 }

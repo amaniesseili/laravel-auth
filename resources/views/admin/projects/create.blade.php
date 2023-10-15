@@ -22,6 +22,15 @@
                 <input type="text" class="form-control" name="image" id="exampleFormControlInput1"
                     placeholder="inserici il link dell'immagine">
             </div>
+            {{-- select per la type --}}
+            <select class="form-select" name="type_id">
+                @foreach ($types as $type)
+                
+                <option value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
+
+            </select>
+
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo Del Progetto</label>
                 <input type="text" class="form-control" name="title" placeholder="inserici il titolo del progetto">

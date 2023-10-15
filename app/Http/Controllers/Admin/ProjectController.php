@@ -30,7 +30,10 @@ class ProjectController extends Controller
 
     //Funzione per visualizzare il modulo di creazione du un nuovo progetto
     public function create(){
+        //$types = type::all(); //nn ho capito questo codice 
+
         return view('admin.projects.create');
+        //"types" => $types// nn ho capito questo codice 
         
     }
     
@@ -50,8 +53,10 @@ class ProjectController extends Controller
 
     public function edit($id) {
         $project = project::findOrFail($id);
+        //$types = type::all(); //nn ho capito questo codice
 
-        return view("admin.projects.edit", compact("project"));
+        return view("admin.projects.edit", compact("project", "types"));
+        
     }
 
 
